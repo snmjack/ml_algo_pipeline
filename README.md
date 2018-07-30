@@ -1,2 +1,2 @@
-# ml_algo_pipeline
+# Ml_Algorithm_Pipeline
 Reusable Machine Learning Pipeline Python Code
