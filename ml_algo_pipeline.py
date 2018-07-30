@@ -41,22 +41,26 @@ hyperparameters = { 'randomforestregressor__max_features' : ['auto', 'sqrt', 'lo
 # 8. Tune model using cross-validation pipeline
 clf = GridSearchCV(pipeline, hyperparameters, cv=10)
 clf.fit(X_train, y_train)
+
+# 9. Check best parameter for hyper parameter tunning
+print clf.best_params_
+# {'randomforestregressor__max_depth': None, 'randomforestregressor__max_features': 'auto'}
  
-# 9. Refit on the entire training set
+# 10. Refit on the entire training set
 # No additional code needed if clf.refit == True (default is True)
  
-# 10. Evaluate model pipeline on test data
+# 11. Evaluate model pipeline on test data
 pred = clf.predict(X_test)
 print r2_score(y_test, pred)
 print mean_squared_error(y_test, pred)
  
 # -----------------------------   REUSE MODEL FOR FUTURE USE    ----------------------------- #  
-# 11. Save model for future use
+# 12. Save model for future use
 joblib.dump(clf, 'rf_regressor.pkl')
 
-# 12. Load model for .pkl file
+# 13. Load model for .pkl file
 clf2 = joblib.load('rf_regressor.pkl')
  
-# 13. Predict data set using loaded model
+# 14. Predict data set using loaded model
 clf2.predict(X_test)
 
